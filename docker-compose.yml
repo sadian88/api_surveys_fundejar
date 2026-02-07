@@ -9,7 +9,7 @@ services:
       - DB_HOST=fundejar_fundejardb
       - DB_PORT=5432
       - DB_USER=postgres
-      - DB_PASSWORD=funde2026#$
+      - DB_PASSWORD="funde2026#$"
       - DB_NAME=Dbsurveys
     depends_on:
       db:
@@ -21,7 +21,7 @@ services:
     restart: always
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=funde2026#$
+      - POSTGRES_PASSWORD="funde2026#$"
       - POSTGRES_DB=Dbsurveys
     ports:
       - "5432:5432"
