@@ -13,12 +13,6 @@ exports.Course = void 0;
 const typeorm_1 = require("typeorm");
 const course_attendance_entity_1 = require("./course-attendance.entity");
 let Course = class Course {
-    id;
-    name;
-    description;
-    courseDate;
-    isActive;
-    attendances;
 };
 exports.Course = Course;
 __decorate([

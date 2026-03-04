@@ -14,12 +14,6 @@ const typeorm_1 = require("typeorm");
 const attendee_entity_1 = require("./attendee.entity");
 const course_entity_1 = require("./course.entity");
 let CourseAttendance = class CourseAttendance {
-    id;
-    course;
-    courseId;
-    attendee;
-    attendeeId;
-    scannedAt;
 };
 exports.CourseAttendance = CourseAttendance;
 __decorate([

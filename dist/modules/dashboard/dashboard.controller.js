@@ -21,10 +21,6 @@ const course_entity_1 = require("../../entities/course.entity");
 const course_attendance_entity_1 = require("../../entities/course-attendance.entity");
 const survey_entity_1 = require("../../entities/survey.entity");
 let DashboardController = class DashboardController {
-    attendeeRepo;
-    courseRepo;
-    attendanceRepo;
-    surveyRepo;
     constructor(attendeeRepo, courseRepo, attendanceRepo, surveyRepo) {
         this.attendeeRepo = attendeeRepo;
         this.courseRepo = courseRepo;

@@ -19,7 +19,7 @@ export declare class RegistrationsController {
     }>;
     getProfile(documentNumber: string): Promise<{
         registration: Registration;
-        attendee: import("../../entities/attendee.entity").Attendee | null;
+        attendee: import("../../entities/attendee.entity").Attendee;
         completedSurveys: import("../../entities/survey-response.entity").SurveyResponse[];
     }>;
     create(body: Partial<Registration>): Promise<Registration>;

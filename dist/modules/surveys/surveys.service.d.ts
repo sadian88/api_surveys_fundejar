@@ -16,7 +16,7 @@ export declare class SurveysService {
         answers: any;
         progress: number;
         isCompleted: boolean;
-        updatedAt: Date | null;
+        updatedAt: Date;
     }>;
     finalize(attendeeId: number, surveyId: number): Promise<{
         success: boolean;

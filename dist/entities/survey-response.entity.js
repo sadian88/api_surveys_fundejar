@@ -14,14 +14,6 @@ const typeorm_1 = require("typeorm");
 const attendee_entity_1 = require("./attendee.entity");
 const survey_entity_1 = require("./survey.entity");
 let SurveyResponse = class SurveyResponse {
-    id;
-    attendee;
-    attendeeId;
-    survey;
-    surveyId;
-    answers;
-    isCompleted;
-    updatedAt;
 };
 exports.SurveyResponse = SurveyResponse;
 __decorate([

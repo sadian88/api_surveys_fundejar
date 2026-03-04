@@ -19,15 +19,6 @@ var NfcStatus;
     NfcStatus["INACTIVE"] = "INACTIVE";
 })(NfcStatus || (exports.NfcStatus = NfcStatus = {}));
 let Attendee = class Attendee {
-    id;
-    documentNumber;
-    fullName;
-    nfcUid;
-    nfcStatus;
-    surveyProgress;
-    createdAt;
-    responses;
-    attendances;
 };
 exports.Attendee = Attendee;
 __decorate([

@@ -25,9 +25,9 @@ export declare class SurveysController {
         answers: any;
         progress: number;
         isCompleted: boolean;
-        updatedAt: Date | null;
+        updatedAt: Date;
     }>;
-    listResponses(surveyId?: string): Promise<import("../../entities/survey-response.entity").SurveyResponse[]> | never[];
+    listResponses(surveyId?: string): any[] | Promise<import("../../entities/survey-response.entity").SurveyResponse[]>;
     findOne(id: number): Promise<Survey>;
     update(id: number, body: Partial<Survey>): Promise<Survey>;
     toggleStatus(id: number, body: {

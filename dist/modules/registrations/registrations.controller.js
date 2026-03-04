@@ -17,7 +17,6 @@ const common_1 = require("@nestjs/common");
 const registrations_service_1 = require("./registrations.service");
 const swagger_1 = require("@nestjs/swagger");
 let RegistrationsController = class RegistrationsController {
-    registrationsService;
     constructor(registrationsService) {
         this.registrationsService = registrationsService;
     }

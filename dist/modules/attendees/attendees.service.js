@@ -19,8 +19,6 @@ const typeorm_2 = require("typeorm");
 const attendee_entity_1 = require("../../entities/attendee.entity");
 const survey_response_entity_1 = require("../../entities/survey-response.entity");
 let AttendeesService = class AttendeesService {
-    attendeeRepository;
-    surveyResponseRepository;
     constructor(attendeeRepository, surveyResponseRepository) {
         this.attendeeRepository = attendeeRepository;
         this.surveyResponseRepository = surveyResponseRepository;

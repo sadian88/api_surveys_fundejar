@@ -25,23 +25,6 @@ var GenderType;
     GenderType["OTRO"] = "OTRO";
 })(GenderType || (exports.GenderType = GenderType = {}));
 let Registration = class Registration {
-    id;
-    firstName;
-    middleName;
-    lastName;
-    nationality;
-    birthDate;
-    documentType;
-    documentNumber;
-    gender;
-    age;
-    address;
-    phonePrimary;
-    phoneSecondary;
-    email;
-    ventureName;
-    createdAt;
-    updatedAt;
 };
 exports.Registration = Registration;
 __decorate([

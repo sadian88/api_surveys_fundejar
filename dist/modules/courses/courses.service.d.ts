@@ -5,5 +5,5 @@ export declare class CoursesService {
     constructor(courseRepository: Repository<Course>);
     create(data: Partial<Course>): Promise<Course>;
     findAll(): Promise<Course[]>;
-    findOne(id: number): Promise<Course | null>;
+    findOne(id: number): Promise<Course>;
 }

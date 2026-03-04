@@ -20,9 +20,6 @@ const course_attendance_entity_1 = require("../../entities/course-attendance.ent
 const attendee_entity_1 = require("../../entities/attendee.entity");
 const course_entity_1 = require("../../entities/course.entity");
 let AttendanceService = class AttendanceService {
-    attendanceRepository;
-    attendeeRepository;
-    courseRepository;
     constructor(attendanceRepository, attendeeRepository, courseRepository) {
         this.attendanceRepository = attendanceRepository;
         this.attendeeRepository = attendeeRepository;

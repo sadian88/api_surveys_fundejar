@@ -31,7 +31,7 @@ export declare class RegistrationsService {
     }>;
     getProfile(documentNumber: string): Promise<{
         registration: Registration;
-        attendee: Attendee | null;
+        attendee: Attendee;
         completedSurveys: SurveyResponse[];
     }>;
     private ensureUniqueDocument;

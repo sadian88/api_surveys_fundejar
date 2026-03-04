@@ -13,12 +13,6 @@ exports.Survey = void 0;
 const typeorm_1 = require("typeorm");
 const survey_response_entity_1 = require("./survey-response.entity");
 let Survey = class Survey {
-    id;
-    title;
-    config;
-    isActive;
-    createdAt;
-    responses;
 };
 exports.Survey = Survey;
 __decorate([

@@ -20,9 +20,6 @@ const survey_entity_1 = require("../../entities/survey.entity");
 const survey_response_entity_1 = require("../../entities/survey-response.entity");
 const attendees_service_1 = require("../attendees/attendees.service");
 let SurveysService = class SurveysService {
-    surveyRepository;
-    surveyResponseRepository;
-    attendeesService;
     constructor(surveyRepository, surveyResponseRepository, attendeesService) {
         this.surveyRepository = surveyRepository;
         this.surveyResponseRepository = surveyResponseRepository;
