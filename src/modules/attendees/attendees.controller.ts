@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Patch, Body, Param } from '@nestjs/common';
+import { Controller, Post, Get, Patch, Delete, Body, Param, HttpCode } from '@nestjs/common';
 import { AttendeesService } from './attendees.service';
 
 @Controller('attendees')
@@ -18,6 +18,17 @@ export class AttendeesController {
     @Patch('nfc-link')
     linkNfc(@Body() body: { documentNumber: string; nfcUid: string }) {
         return this.attendeesService.linkNfc(body.documentNumber, body.nfcUid);
+    }
+
+    @Patch(':id')
+    update(@Param('id') id: string, @Body() body: { fullName?: string; documentNumber?: string; nfcUid?: string; nfcStatus?: 'ACTIVE' | 'INACTIVE' }) {
+        return this.attendeesService.update(+id, body);
+    }
+
+    @Delete(':id')
+    @HttpCode(204)
+    remove(@Param('id') id: string) {
+        return this.attendeesService.remove(+id);
     }
 
     @Get()

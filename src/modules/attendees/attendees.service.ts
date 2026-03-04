@@ -2,6 +2,13 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Attendee } from '../../entities/attendee.entity';
+
+export interface UpdateAttendeeDto {
+    fullName?: string;
+    documentNumber?: string;
+    nfcUid?: string;
+    nfcStatus?: 'ACTIVE' | 'INACTIVE';
+}
 import { SurveyResponse } from '../../entities/survey-response.entity';
 
 @Injectable()
@@ -62,6 +69,23 @@ export class AttendeesService {
             updateData.nfcStatus = status;
         }
         await this.attendeeRepository.update(id, updateData);
+    }
+
+    async update(id: number, dto: UpdateAttendeeDto) {
+        const attendee = await this.attendeeRepository.findOne({ where: { id } });
+        if (!attendee) {
+            throw new NotFoundException(`Attendee with ID ${id} not found`);
+        }
+        Object.assign(attendee, dto);
+        return this.attendeeRepository.save(attendee);
+    }
+
+    async remove(id: number) {
+        const attendee = await this.attendeeRepository.findOne({ where: { id } });
+        if (!attendee) {
+            throw new NotFoundException(`Attendee with ID ${id} not found`);
+        }
+        await this.attendeeRepository.remove(attendee);
     }
 
     async findAll() {
