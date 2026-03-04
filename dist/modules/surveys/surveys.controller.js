@@ -60,6 +60,9 @@ let SurveysController = class SurveysController {
     toggleStatus(id, body) {
         return this.surveysService.toggleStatus(id, body.isActive);
     }
+    assign(id, body) {
+        return this.surveysService.assignSurvey(id, body.attendeeIds);
+    }
     remove(id) {
         return this.surveysService.remove(id);
     }
@@ -146,6 +149,15 @@ __decorate([
     __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
 ], SurveysController.prototype, "toggleStatus", null);
+__decorate([
+    (0, common_1.Post)(':id/assign'),
+    (0, swagger_1.ApiOperation)({ summary: 'Assign survey to attendees' }),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Object]),
+    __metadata("design:returntype", void 0)
+], SurveysController.prototype, "assign", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, swagger_1.ApiOperation)({ summary: 'Delete survey by ID' }),

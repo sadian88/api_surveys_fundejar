@@ -28,6 +28,12 @@ let AttendeesController = class AttendeesController {
     linkNfc(body) {
         return this.attendeesService.linkNfc(body.documentNumber, body.nfcUid);
     }
+    update(id, body) {
+        return this.attendeesService.update(+id, body);
+    }
+    remove(id) {
+        return this.attendeesService.remove(+id);
+    }
     findAll() {
         return this.attendeesService.findAll();
     }
@@ -54,6 +60,22 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AttendeesController.prototype, "linkNfc", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], AttendeesController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    (0, common_1.HttpCode)(204),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AttendeesController.prototype, "remove", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),

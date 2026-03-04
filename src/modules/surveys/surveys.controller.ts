@@ -88,6 +88,12 @@ export class SurveysController {
         return this.surveysService.toggleStatus(id, body.isActive);
     }
 
+    @Post(':id/assign')
+    @ApiOperation({ summary: 'Assign survey to attendees' })
+    assign(@Param('id', ParseIntPipe) id: number, @Body() body: { attendeeIds: number[] }) {
+        return this.surveysService.assignSurvey(id, body.attendeeIds);
+    }
+
     @Delete(':id')
     @ApiOperation({ summary: 'Delete survey by ID' })
     @ApiResponse({ status: 200, description: 'Survey deleted' })

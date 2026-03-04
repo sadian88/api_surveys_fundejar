@@ -27,6 +27,10 @@ export declare class SurveysService {
     create(data: Partial<Survey>): Promise<Survey>;
     update(id: number, data: Partial<Survey>): Promise<Survey>;
     toggleStatus(id: number, isActive: boolean): Promise<Survey>;
+    assignSurvey(surveyId: number, attendeeIds: number[]): Promise<{
+        assigned: number;
+        skipped: number;
+    }>;
     remove(id: number): Promise<{
         deleted: boolean;
     }>;

@@ -33,6 +33,12 @@ export declare class SurveysController {
     toggleStatus(id: number, body: {
         isActive: boolean;
     }): Promise<Survey>;
+    assign(id: number, body: {
+        attendeeIds: number[];
+    }): Promise<{
+        assigned: number;
+        skipped: number;
+    }>;
     remove(id: number): Promise<{
         deleted: boolean;
     }>;

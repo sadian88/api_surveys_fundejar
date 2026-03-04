@@ -128,6 +128,23 @@ let SurveysService = class SurveysService {
         survey.isActive = isActive;
         return this.surveyRepository.save(survey);
     }
+    async assignSurvey(surveyId, attendeeIds) {
+        let assigned = 0;
+        let skipped = 0;
+        for (const attendeeId of attendeeIds) {
+            const exists = await this.surveyResponseRepository.findOne({ where: { attendeeId, surveyId } });
+            if (exists) {
+                skipped++;
+                continue;
+            }
+            const response = this.surveyResponseRepository.create({
+                attendeeId, surveyId, answers: {}, isCompleted: false,
+            });
+            await this.surveyResponseRepository.save(response);
+            assigned++;
+        }
+        return { assigned, skipped };
+    }
     async remove(id) {
         const result = await this.surveyRepository.delete(id);
         if (!result.affected) {

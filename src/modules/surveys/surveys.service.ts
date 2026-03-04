@@ -156,6 +156,21 @@ export class SurveysService {
         return this.surveyRepository.save(survey);
     }
 
+    async assignSurvey(surveyId: number, attendeeIds: number[]): Promise<{ assigned: number; skipped: number }> {
+        let assigned = 0;
+        let skipped = 0;
+        for (const attendeeId of attendeeIds) {
+            const exists = await this.surveyResponseRepository.findOne({ where: { attendeeId, surveyId } });
+            if (exists) { skipped++; continue; }
+            const response = this.surveyResponseRepository.create({
+                attendeeId, surveyId, answers: {}, isCompleted: false,
+            });
+            await this.surveyResponseRepository.save(response);
+            assigned++;
+        }
+        return { assigned, skipped };
+    }
+
     async remove(id: number) {
         const result = await this.surveyRepository.delete(id);
         if (!result.affected) {

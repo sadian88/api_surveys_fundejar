@@ -64,6 +64,21 @@ let AttendeesService = class AttendeesService {
         }
         await this.attendeeRepository.update(id, updateData);
     }
+    async update(id, dto) {
+        const attendee = await this.attendeeRepository.findOne({ where: { id } });
+        if (!attendee) {
+            throw new common_1.NotFoundException(`Attendee with ID ${id} not found`);
+        }
+        Object.assign(attendee, dto);
+        return this.attendeeRepository.save(attendee);
+    }
+    async remove(id) {
+        const attendee = await this.attendeeRepository.findOne({ where: { id } });
+        if (!attendee) {
+            throw new common_1.NotFoundException(`Attendee with ID ${id} not found`);
+        }
+        await this.attendeeRepository.remove(attendee);
+    }
     async findAll() {
         return this.attendeeRepository.find({
             order: { createdAt: 'DESC' },
